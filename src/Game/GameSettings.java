@@ -4,12 +4,11 @@ package Game;
  * Created by Григорий on 17.11.2015.
  */
 public class GameSettings {
-    public int roundsCounter = 0;
-    public int numberOfPlayers = 6;
-    public boolean changeShootDirection = false;
+    private int roundsCounter = 0;
+    private int numberOfPlayers = 6;
+    private static boolean changeShootDirection = false;
+    private static boolean reloadGunEveryRound = false;
 
-    public void changeSettings() {
-    }
 
     public int getRoundsCounter() {
         return roundsCounter;
@@ -17,11 +16,12 @@ public class GameSettings {
     public void setRoundsCounter(int roundsCounter) {
         this.roundsCounter = roundsCounter;
     }
+
     public boolean getChangeShootDirection() {
         return changeShootDirection;
     }
-    public void setChangeShootDirection(boolean changeShootDirection) {
-        this.changeShootDirection = changeShootDirection;
+    public static void setChangeShootDirection(boolean changeShootDirection) {
+        GameSettings.changeShootDirection = changeShootDirection;
     }
 
     public int getNumberOfPlayers() {
@@ -29,6 +29,13 @@ public class GameSettings {
     }
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
+    }
+
+    public static boolean isReloadGunEveryRound() {
+        return reloadGunEveryRound;
+    }
+    public static void setReloadGunEveryRound(boolean reloadGunEveryRound) {
+        GameSettings.reloadGunEveryRound = reloadGunEveryRound;
     }
 
 }

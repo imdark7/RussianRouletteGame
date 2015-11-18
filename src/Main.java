@@ -11,8 +11,11 @@ public class Main {
         String wannaPlay = scanner.nextLine();
         if (wannaPlay == "да" || wannaPlay == "Да") {
             Game newGame = new Game();
+
         }
+
         Round.settings();
         Round.start();
+
     }
 }
