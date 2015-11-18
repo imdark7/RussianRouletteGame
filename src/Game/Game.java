@@ -9,20 +9,20 @@ public  class Game {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Player> players = new ArrayList<>();
 
-    public static void printGameInfo() {
-        System.out.println("Количество игроков:" + GameSettings.getNumberOfPlayers());
-        System.out.println("Количество раундов сыграно: " + GameSettings.getRoundsCounter());
-        if (GameSettings.getChangeShootDirection()) {
-            System.out.println("Игроки стреляют не меняя направления");
+    public void printGameInfo() {
+        if (players.isEmpty()) {
+            System.out.println("Никто не выжил");
         } else {
-            System.out.println("Игроки каждый раунд меняют направление стрельбы");
+            System.out.println("Победил игрок под номером:" + players.get(0));
+            System.out.println("Количество раундов сыграно: " + GameSettings.getRoundsCounter());
         }
     }
 
     public void startNewRound() {
         GameSettings.setRoundsCounter(GameSettings.getRoundsCounter() + 1);
         System.out.println(GameSettings.getRoundsCounter() + " раунд.");
-        Round.start();
+        Round newRound = new Round();
+        newRound.start();
     }
 
     public void initSettings() {

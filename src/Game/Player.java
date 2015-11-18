@@ -23,4 +23,11 @@ public class Player {
     public Player(int number) {
         playerNunber = number;
     }
+
+    public void setDeathStatus() {
+        isDead = true;
+    }
+    public boolean getDeathStatus() {
+        return isDead;
+    }
 }
