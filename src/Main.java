@@ -1,7 +1,8 @@
-
 import Game.Game;
+import Game.GameSettings;
 import Game.Round;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -9,13 +10,16 @@ public class Main {
         System.out.println("Хотите сыграть в русскую рулетку?");
         Scanner scanner = new Scanner(System.in);
         String wannaPlay = scanner.nextLine();
-        if (wannaPlay == "да" || wannaPlay == "Да") {
+
+        if (Objects.equals(wannaPlay,"да") || Objects.equals(wannaPlay, "Да")) {
             Game newGame = new Game();
+            newGame.initSettings();
+            newGame.createPlayers(GameSettings.getNumberOfPlayers());
+            newGame.startNewRound();
 
+
+        } else {
+            System.out.println("Может быть в другой раз.");
         }
-
-        Round.settings();
-        Round.start();
-
     }
 }

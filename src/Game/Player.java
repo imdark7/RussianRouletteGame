@@ -1,11 +1,8 @@
 package Game;
 
-/**
- * Created by Григорий on 18.11.2015.
- */
 public class Player {
     private boolean isDead = false ;
-    private int playerNunber;
+    private int playerNunber = 0;
     private int bullet = chargeGun();
 
 

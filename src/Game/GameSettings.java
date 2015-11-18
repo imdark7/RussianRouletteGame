@@ -1,34 +1,24 @@
 package Game;
 
-/**
- * Created by Григорий on 17.11.2015.
- */
 public class GameSettings {
-    private int roundsCounter = 0;
-    private int numberOfPlayers = 6;
+    private static int roundsCounter = 0;
+    private static int numberOfPlayers = 6;
     private static boolean changeShootDirection = false;
     private static boolean reloadGunEveryRound = false;
 
 
-    public int getRoundsCounter() {
+    public static int getRoundsCounter() {
         return roundsCounter;
     }
-    public void setRoundsCounter(int roundsCounter) {
-        this.roundsCounter = roundsCounter;
+    public static void setRoundsCounter(int roundsCounter) {
+        GameSettings.roundsCounter = roundsCounter;
     }
 
-    public boolean getChangeShootDirection() {
-        return changeShootDirection;
-    }
-    public static void setChangeShootDirection(boolean changeShootDirection) {
-        GameSettings.changeShootDirection = changeShootDirection;
-    }
-
-    public int getNumberOfPlayers() {
+    public static int getNumberOfPlayers() {
         return numberOfPlayers;
     }
-    public void setNumberOfPlayers(int numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
+    public static void setNumberOfPlayers(int numberOfPlayers) {
+        GameSettings.numberOfPlayers = numberOfPlayers;
     }
 
     public static boolean isReloadGunEveryRound() {
@@ -36,6 +26,13 @@ public class GameSettings {
     }
     public static void setReloadGunEveryRound(boolean reloadGunEveryRound) {
         GameSettings.reloadGunEveryRound = reloadGunEveryRound;
+    }
+
+    public static boolean getChangeShootDirection() {
+        return changeShootDirection;
+    }
+    public static void setChangeShootDirection(boolean changeShootDirection) {
+        GameSettings.changeShootDirection = changeShootDirection;
     }
 
 }

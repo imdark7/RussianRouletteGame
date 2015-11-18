@@ -1,21 +1,17 @@
 package Game;
 
-import java.util.Scanner;
 
-public class Round {
-
-    public static void start() {
-
+public class Round extends Game {
+    public void start() {
+        printRoundInfo();
+        System.out.println("Игроки стреляют.");
+        for (int i = 0; i < players.size(); i++) {
+            players.get(i);
+        }
     }
 
-    public static void settings() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите количество игроков: ");
-        int countPlayers = scanner.nextInt();
-        currentSettings.setNumberOfPlayers(countPlayers);
-        System.out.println("Менять ли направление выстрела?");
-        String answer2 = scanner.nextLine();
-        if (answer2 == "да" || answer2 == "Да");
-
+    public static void printRoundInfo(){
+        System.out.println("Осталось живых игроков: " + GameSettings.getNumberOfPlayers());
     }
+
 }
