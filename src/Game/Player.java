@@ -5,7 +5,6 @@ public class Player {
     private int playerNunber = 0;
     private int bullet = chargeGun();
 
-
     public boolean tryToShoot() {
         if (bullet != 1) {
             bullet -= 1;
