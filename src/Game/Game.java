@@ -1,22 +1,12 @@
 package Game;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
 public  class Game {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Player> players = new ArrayList<>();
-
-    public void printGameInfo() {
-        if (players.isEmpty()) {
-            System.out.println("Никто не выжил");
-        } else {
-            System.out.println("Победил игрок под номером:" + players.get(0));
-            System.out.println("Количество раундов сыграно: " + GameSettings.getRoundsCounter());
-        }
-    }
 
     public void startNewRound() {
         GameSettings.setRoundsCounter(GameSettings.getRoundsCounter() + 1);
@@ -51,6 +41,7 @@ public  class Game {
         for (int i = 0; i < numberOfPlayers; i++) {
             Player player = new Player(i);
             players.add(player);
+            player.chargeGun();
         }
     }
 }

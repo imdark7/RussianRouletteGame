@@ -2,8 +2,8 @@ package Game;
 
 public class Player {
     private boolean isDead = false ;
-    private int playerNunber = 0;
-    private int bullet = chargeGun();
+    int playerNumber;
+    private int bullet;
 
     public boolean tryToShoot() {
         if (bullet != 1) {
@@ -13,21 +13,21 @@ public class Player {
             return true;
         }
     }
-
-
-    public int chargeGun() {
+    public void chargeGun() {
         int a = (int)(Math.random() * 6);
-        return a;
+        bullet = a;
     }
-
-    public Player(int number) {
-        playerNunber = number;
-    }
-
     public void setDeathStatus() {
         isDead = true;
     }
     public boolean getDeathStatus() {
         return isDead;
+    }
+    public Player(int number) {
+        playerNumber = number;
+    }
+
+    public int getPlayerNumber() {
+        return playerNumber;
     }
 }
