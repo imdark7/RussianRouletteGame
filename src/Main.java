@@ -1,8 +1,6 @@
 import Game.Game;
 import Game.GameSettings;
-import Game.Round;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -11,11 +9,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String wannaPlay = scanner.nextLine();
 
-        if (Objects.equals(wannaPlay,"да") || Objects.equals(wannaPlay, "Да")) {
+        if (wannaPlay.toLowerCase().equals("да")) {
             Game newGame = new Game();
             newGame.initSettings();
             newGame.createPlayers(GameSettings.getNumberOfPlayers());
-            newGame.startNewRound();
+            newGame.startGame();
 
 
         } else {

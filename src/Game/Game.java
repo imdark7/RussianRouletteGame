@@ -1,18 +1,23 @@
 package Game;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public  class Game {
+    static ArrayList<Player> players = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-    ArrayList<Player> players = new ArrayList<>();
 
-    public void startNewRound() {
-        GameSettings.setRoundsCounter(GameSettings.getRoundsCounter() + 1);
-        System.out.println(GameSettings.getRoundsCounter() + " раунд.");
-        Round newRound = new Round();
-        newRound.start();
+    public static int getPlayersAmount() {
+        return players.size();
+    }
+
+    public void startGame() {
+        while (players.size() > 1) {
+            GameSettings.setRoundsCounter(GameSettings.getRoundsCounter() + 1);
+            System.out.println(GameSettings.getRoundsCounter() + " раунд.");
+            Round newRound = new Round();
+            newRound.start();
+        }
     }
 
     public void initSettings() {
@@ -24,13 +29,13 @@ public  class Game {
 
         System.out.println("2. Будут ли игроки менять направление стрельбы каждый раунд?(да/нет)");
         answer = scanner.next();
-        if (Objects.equals(answer, "Да") || Objects.equals(answer, "да")) {
+        if (answer.toLowerCase().equals("да")) {
             GameSettings.setReloadGunEveryRound(true);
         }
 
         System.out.println("3. Будут ли игроки перезаряжать револьвер каждый раунд, не зависимо от того, произошел ли у них выстрел?(да/нет)");
         answer = scanner.next();
-        if (Objects.equals(answer, "Да") || Objects.equals(answer, "да")) {
+        if (answer.toLowerCase().equals("да")) {
             GameSettings.setReloadGunEveryRound(true);
         }
         System.out.println();
