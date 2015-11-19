@@ -19,7 +19,7 @@ public class Round {
 
     public void printRoundInfo(){
         if (Game.getPlayersAmount() < 1) {
-            System.out.println("Игра окончена, никто не вижил");
+            System.out.println("Игра окончена, никто не выжил");
             System.out.println("Количество раундов сыграно: " + GameSettings.getRoundsCounter());
         } else if (Game.getPlayersAmount() == 1) {
             System.out.println("Победил игрок под номером:" + Game.players.get(0).getPlayerNumber());
