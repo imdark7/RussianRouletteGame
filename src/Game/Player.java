@@ -6,16 +6,15 @@ public class Player {
     private int bullet;
 
     public boolean tryToShoot() {
-        if (bullet != 1) {
-            bullet -= 1;
-            return false;
-        } else {
+        if (bullet == 0) {
             return true;
+        } else {
+            bullet--;
+            return false;
         }
     }
     public void chargeGun() {
-        int a = (int)(Math.random() * 6);
-        bullet = a;
+        bullet = (int)(Math.random() * 6);
     }
     public void setDeathStatus() {
         isDead = true;
@@ -26,7 +25,6 @@ public class Player {
     public Player(int number) {
         playerNumber = number;
     }
-
     public int getPlayerNumber() {
         return playerNumber;
     }

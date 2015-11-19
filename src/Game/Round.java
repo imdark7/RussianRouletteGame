@@ -5,7 +5,10 @@ public class Round {
         System.out.println("Игроки стреляют.");
         for (int i = 0; i < Game.getPlayersAmount(); i++) {
             if (i + 1 != Game.getPlayersAmount()) {
-                if (Game.players.get(i).tryToShoot()) Game.players.get(i + 1).setDeathStatus();
+                if (Game.players.get(i).tryToShoot()) {
+                    Game.players.get(i + 1).setDeathStatus();
+                    Game.players.get(i).chargeGun();
+                }
             } else {
                 if (Game.players.get(i).tryToShoot()) Game.players.get(0).setDeathStatus();
             }
