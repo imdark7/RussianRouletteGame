@@ -30,7 +30,7 @@ public  class Game {
         System.out.println("2. Будут ли игроки менять направление стрельбы каждый раунд?(да/нет)");
         answer = scanner.next();
         if (answer.toLowerCase().equals("да")) {
-            GameSettings.setReloadGunEveryRound(true);
+            GameSettings.setChangeShootDirection(true);
         }
 
         System.out.println("3. Будут ли игроки перезаряжать револьвер каждый раунд, не зависимо от того, произошел ли у них выстрел?(да/нет)");
