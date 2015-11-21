@@ -5,6 +5,7 @@ public class GameSettings {
     private static int numberOfPlayers = 6;
     private static boolean changeShootDirection = false;
     private static boolean reloadGunEveryRound = false;
+    private static int bulletsInTheGun = 6;
 
 
     public static int getRoundsCounter() {
@@ -35,4 +36,11 @@ public class GameSettings {
         GameSettings.changeShootDirection = changeShootDirection;
     }
 
+    public static int getBulletsInTheGun() {
+        return bulletsInTheGun;
+    }
+
+    public static void setBulletsInTheGun(int bulletsInTheGun) {
+        GameSettings.bulletsInTheGun = bulletsInTheGun;
+    }
 }

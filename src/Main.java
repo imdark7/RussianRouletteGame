@@ -1,5 +1,4 @@
 import Game.Game;
-import Game.GameSettings;
 
 import java.util.Scanner;
 
@@ -12,7 +11,6 @@ public class Main {
         if (wannaPlay.toLowerCase().equals("да")) {
             Game newGame = new Game();
             newGame.initSettings();
-            newGame.createPlayers(GameSettings.getNumberOfPlayers());
             newGame.startGame();
 
 
