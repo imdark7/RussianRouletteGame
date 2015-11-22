@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public  class Game {
     static ArrayList<Player> players = new ArrayList<>();
-    private static int choosenPlayer;
     Scanner scanner = new Scanner(System.in);
 
     public static int getPlayersAmount() {
@@ -29,27 +28,49 @@ public  class Game {
         GameSettings.setNumberOfPlayers(players);
         createPlayers(GameSettings.getNumberOfPlayers());
 
-        System.out.println("2. Будут ли игроки менять направление стрельбы каждый раунд?(да/нет)");
-        answer = scanner.next();
-        if (answer.toLowerCase().equals("да")) {
-            GameSettings.setChangeShootDirection(true);
-        }
-
-        System.out.println("3. Будут ли игроки перезаряжать револьвер каждый раунд, не зависимо от того, произошел ли у них выстрел?(да/нет)");
+        System.out.println("2. Будут ли игроки перезаряжать револьвер каждый раунд, не зависимо от того, произошел ли у них выстрел?(да/нет)");
         answer = scanner.next();
         if (answer.toLowerCase().equals("да")) {
             GameSettings.setReloadGunEveryRound(true);
         }
 
-        System.out.println("4. Объем барабана револьвера:");
+        System.out.println("3. Объем барабана револьвера:");
         GameSettings.setBulletsInTheGun(scanner.nextInt());
 
-        System.out.println("5. Вы можете поставить на одного из участников, для этого введите его номер (от 1 до " + getPlayersAmount() + "):");
-        choosenPlayer = scanner.nextInt();
-        if (choosenPlayer > getPlayersAmount() && choosenPlayer <= 0) {
-            System.out.println("Игрок с таким номером не найден, попробуйте ввести другой номер:");
-            choosenPlayer = scanner.nextInt();
+        System.out.println("4. Введите объем барабана револьвера (по умолчанию: 6) :");
+        while (true) {
+            int number = scanner.nextInt();
+            if (number > 0) {
+                GameSettings.setBulletsInTheGun(number);
+                break;
+            } else {
+                System.out.println("Введите число больше нуля");
+            }
         }
+
+        System.out.println("5. Игроки будут стрелять в себя или в других?( 1 - в себя, 2 - в других) :");
+        while (true) {
+            int number = scanner.nextInt();
+            if (number == 1 || number == 2) {
+                GameSettings.setShootingToYourself(true);
+                break;
+            } else {
+                System.out.println("Введите 1 или 2 :");
+            }
+        }
+
+        if (!GameSettings.isShootingToYourself()) {
+            System.out.println("6. Будут ли игроки менять направление стрельбы каждый раунд?(да/нет)");
+            answer = scanner.next();
+            if (answer.toLowerCase().equals("да")) {
+                GameSettings.setChangeShootDirection(true);
+            }
+        }
+
+        GameSettings.setChosenPlayer();
+        System.out.println("Вам присвоен номер " + GameSettings.getChosenPlayer());
+
+
         System.out.println();
         System.out.println("Отлично, настройки записаны.");
     }

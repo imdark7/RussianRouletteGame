@@ -6,7 +6,8 @@ public class GameSettings {
     private static boolean changeShootDirection = false;
     private static boolean reloadGunEveryRound = false;
     private static int bulletsInTheGun = 6;
-
+    private static int chosenPlayer;
+    private static boolean shootingToYourself = false;
 
     public static int getRoundsCounter() {
         return roundsCounter;
@@ -39,8 +40,25 @@ public class GameSettings {
     public static int getBulletsInTheGun() {
         return bulletsInTheGun;
     }
-
     public static void setBulletsInTheGun(int bulletsInTheGun) {
         GameSettings.bulletsInTheGun = bulletsInTheGun;
     }
+
+    public static int getChosenPlayer() {
+        return chosenPlayer;
+    }
+
+    public static void setChosenPlayer() {
+        GameSettings.chosenPlayer = (int) (Math.random() * Game.getPlayersAmount() + 1);
+    }
+
+    public static boolean isShootingToYourself() {
+        return shootingToYourself;
+    }
+
+    public static void setShootingToYourself(boolean shootingToYourself) {
+        GameSettings.shootingToYourself = shootingToYourself;
+    }
+
+
 }
